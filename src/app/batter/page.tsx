@@ -1,8 +1,10 @@
 import Image from "next/image";
-import PlayerProfile from "../components/PlayerProfile";
-import InfoGrades from "../components/InfoGrades";
+import PlayerProfile from "../(components)/PlayerProfile";
+import InfoGrades from "../(components)/InfoGrades";
+import ConnectApiDemo from "../(components)/ConnectApiDemo";
+import { GetStaticProps, NextPage } from "next";
 
-export default function Batter() {
+export default async function Batter() {
   return (
     <>
       <div className="grid grid-cols-5 gap-4 mt-4">

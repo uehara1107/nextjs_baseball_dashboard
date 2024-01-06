@@ -1,8 +1,8 @@
 import Image from "next/image";
-import PlayerProfile from "../components/PlayerProfile";
-import InfoGrades from "../components/InfoGrades";
+import PlayerProfile from "../(components)/PlayerProfile";
+import InfoGrades from "../(components)/InfoGrades";
 
-export default function Batter() {
+export default function Pitcher() {
   return (
     <>
       <div className="grid grid-cols-5 gap-4 mt-4">
