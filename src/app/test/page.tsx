@@ -1,3 +1,5 @@
+import SeekBar from "../(components)/TestSeekBar";
+
 interface userDataProps {
   ID: number;
   Value: string;
@@ -17,6 +19,9 @@ export default async function Test() {
   const userData = await fetchUsers();
   return (
     <>
+      <div>
+        <SeekBar />
+      </div>
       <div className="border border-blue-400 rounded">
         <div className="font-bold text-xl mb-2">poyo</div>
         <p className="text-gray-700 text-base">poyo</p>
