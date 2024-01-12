@@ -1,4 +1,7 @@
+"use client";
 import SeekBar from "../(components)/TestSeekBar";
+import DemoSeekBar from "../(components)/DemoSeekBar";
+import { useState } from "react";
 
 interface userDataProps {
   ID: number;
@@ -16,9 +19,14 @@ const fetchUsers: () => Promise<userDataProps[]> = async () => {
 };
 
 export default async function Test() {
+  const [date, setDate] = useState<number>(new Date("2024-01-01").getTime());
   const userData = await fetchUsers();
   return (
     <>
+      <div className="container mx-auto p-4">
+        <h1 className="text-xl font-bold mb-4">{date}</h1>
+        <DemoSeekBar date={date} setDate={setDate} />
+      </div>
       <div>
         <SeekBar />
       </div>

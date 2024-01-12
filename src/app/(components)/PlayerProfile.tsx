@@ -1,5 +1,15 @@
+"use client";
 import { PlayerData } from "../(domains)/playerType";
-import { getBatterData } from "../(lib)/getBatter";
+// データ取得関数（非同期）
+
+async function getBatterData(pId: number): Promise<PlayerData[]> {
+  const url = `http://172.24.64.1:8080/test/batter/${pId}`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
 
 type Props = {
   pId: number;
@@ -9,7 +19,7 @@ export default async function PlayerProfile({ pId }: Props) {
   const playerData = await getBatterData(pId);
   return (
     <>
-      {playerData.map((player) => (
+      {playerData.map((player: PlayerData) => (
         <div className="border border-blue-400 rounded shadow-md">
           <div className="flex justify-center">
             <h1>基本情報</h1>
