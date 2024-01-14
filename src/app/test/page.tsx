@@ -1,5 +1,5 @@
 "use client";
-import SeekBar from "../(components)/TestSeekBar";
+import SeekBar from "./TestSeekBar";
 import DemoSeekBar from "../(components)/DemoSeekBar";
 import { useState } from "react";
 

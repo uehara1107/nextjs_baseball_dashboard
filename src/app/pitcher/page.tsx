@@ -1,58 +1,15 @@
-import Image from "next/image";
-import PlayerProfile from "../(components)/PlayerProfile";
-import InfoGrades from "../(components)/InfoGrades";
+import PlayerProfile from "./(components)/GetPlayerProfile";
+import InfoGrades from "./(components)/GetBatterGameData";
+import DailyGrades from "./(components)/DailyGrades";
+import { Suspense } from "react";
 
-export default function Pitcher() {
+export default async function Batter() {
+  const gradeData = await InfoGrades(101);
   return (
-    <>
-      <div className="grid grid-cols-5 gap-4 mt-4">
-        <div className="col-span-2 ml-3">
-          <PlayerProfile />
-        </div>
-        <div className="col-span-1">
-          <InfoGrades />
-        </div>
-        <div className="col-span-1">
-          <InfoGrades />
-        </div>
-        <div className="col-span-1 mr-3">
-          <InfoGrades />
-        </div>
-      </div>
-      <div className="grid grid-cols-5 gap-4 mt-4">
-        <div className="ml-3">
-          <InfoGrades />
-        </div>
-        <div>
-          <InfoGrades />
-        </div>
-        <div>
-          <InfoGrades />
-        </div>
-        <div>
-          <InfoGrades />
-        </div>
-        <div className="mr-3">
-          <InfoGrades />
-        </div>
-      </div>
-      <div className="grid grid-cols-5 gap-4 mt-4">
-        <div className="ml-3">
-          <InfoGrades />
-        </div>
-        <div>
-          <InfoGrades />
-        </div>
-        <div>
-          <InfoGrades />
-        </div>
-        <div>
-          <InfoGrades />
-        </div>
-        <div className="mr-3">
-          <InfoGrades />
-        </div>
-      </div>
-    </>
+    <Suspense fallback={<p className="mt-4">Loading...</p>}>
+      <DailyGrades gradeData={gradeData}>
+        <PlayerProfile pId={101} />
+      </DailyGrades>
+    </Suspense>
   );
 }

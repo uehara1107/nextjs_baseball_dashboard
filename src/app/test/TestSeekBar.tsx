@@ -1,7 +1,6 @@
 // components/SeekBar.tsx
 "use client";
 import React, { useState } from "react";
-import "tailwindcss/tailwind.css";
 
 const SeekBar = () => {
   const [value, setValue] = useState(0);
